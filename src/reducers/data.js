@@ -1,6 +1,6 @@
 
 const initialState = {
-    data:[12]
+    data:''
 }
 
 export default function dataReducers( state = initialState, action) {

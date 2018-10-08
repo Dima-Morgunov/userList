@@ -1,26 +1,28 @@
 import React, {Component} from 'react'
+import { Card } from 'semantic-ui-react'
 
 export class UserCart extends Component {
-    state = {
-        data:[]
-    }
     render() {
-        const {data} = this.state
+        const {data} = this.props
         return (
             <div>
                 <img />
-               {data.map(e =>{
-                   <ul>
-                       <li>{e.userName}</li>
-                       <li>{e.Name}</li>
-                       <li>{e.phone}</li>
-                   </ul>
-                    })
+                {
+                  data && data.map(item =>
+                      <div>
+                          <Card
+                              key = {item.id}
+                              header={item.name}
+                              meta={item.phone}
+                              description={
+                                  `city: ${item.address.city}`
+                              }
+                              extra={item.address.street}
+                          />
+                          <br/>
+                      </div>
+                  )
                 }
-
-                <button>
-                    More...
-                </button>
             </div>
         )
     }
